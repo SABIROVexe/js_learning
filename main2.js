@@ -1,12 +1,15 @@
-let str = prompt("Введите строку", " ");
-let j = 0;
-console.log(str[0]);
+document.getElementById('myForm').addEventListener('submit', function(event) {
+event.preventDefault(); 
 
-for(let i = 0; i < str.length; i++){
+  let str = document.getElementById('inputText').value;
+  let j = 0;
 
-    if(str[i] == "т"){
-        j++;
-    }
+  for (let i = 0; i < str.length; i++) {
+      if ( str.charAt(i)=== "т" || str.charAt(i) === "Т") {
+          j++;
+      }
+  }
 
-  console.log("количество букв:" + " " + j);
-}
+  document.getElementById('output').innerText = 'Количество букв т: ' + j; 
+});
+

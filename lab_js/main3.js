@@ -1,15 +1,29 @@
-let x = [1, 2, 4, 5, 6, 9];
+//Написать программу, которая методом обмена ("пузырька") сортирует по убыванию
+//введенный с клавиатуры одномерный массив.
 
+document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
 
- for (let i = 0; i < x.length; i++) {
-    for (let j = 0; j < x.length - 1; j++) {
-        if (x[j] > x[j + 1]) {
-               
-            let temp = x[j];
-            x[j] = x[j + 1];
-            x[j + 1] = temp;
+    let str = document.getElementById('inputText').value;
+    let arr = str.split('').map(Number);
+    let flag;
+    let n = arr.length;
+
+function sort(){
+
+    do{
+        flag = false;
+        for(let i = 0; i < n - 1; i++ ){
+            if(arr[i] > arr[i + 1]){
+                [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+                flag = true;
             }
         }
-    }
-console(temp);
+    }while(flag)
+    return arr;
+}
 
+sort(arr);
+
+    document.getElementById('output').innerText = "Отсортированный массив " + arr;
+});
